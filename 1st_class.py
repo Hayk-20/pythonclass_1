@@ -1,14 +1,14 @@
 class Country:
     def __init__(self, country_name: str, continent: str):
-        self.c_name = country_name
+        self.country_name = country_name
         self.continent = continent
 
     def country_info(self):
-        return f"Country name {self.c_name} , Continent {self.continent} "
+        return f"Country name {self.country_name} , Continent {self.continent} "
 
 
 my_country = Country("Erevan", "Armenia")
-print(my_country.country_info())
+#print(my_country.country_info())
 
 
 class Brand:
@@ -21,7 +21,7 @@ class Brand:
 
 
 my_presentation = Brand("Lexus", 2000)
-print(my_presentation.presentation())
+#print(my_presentation.presentation())
 
 
 class Season:
@@ -34,21 +34,24 @@ class Season:
 
 
 my_season = Season("Winter", 35)
-print(my_season.season_info())
+#print(my_season.season_info())
 
 
 class Product(Season, Brand, Country):
-    def __init__(self, product_name: str, product_type: str, product_price: int, product_quantity: int):
+    def __init__(self, product_name: str, product_type: str, product_price: int, product_quantity: int,):
         Country.__init__(self, country_name, continent)
-        Brand.__init__(self,brand_name,business_start_date)
-        Season.__init__(self,season_name,temperature)
+        Brand.__init__(self, brand_name,business_start_date)
+        Season.__init__(self, season_name,temperature)
         self.p_name = product_name
         self.p_type = product_type
         self.p_price = product_price
         self.p_quantity = product_quantity
 
 
-    def prod_t(self):
-        return f"Name {self.p_name}, Type {self.p_type}, price {self.p_price}, Quantity {self.p_quantity}"
+    def present(self):
+        return f"Product name{self.p_name}, {self.season_name} {self.temperature} {self.brand_name}\
+               {self.business_start_date} {self.country_name} {self.continent}"
 
+    def discount_price(self):
+        if
 
