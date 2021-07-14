@@ -1,40 +1,54 @@
-import random
-#---------------------------------Homework#1-------------------------------------
+class Country:
+    def __init__(self, country_name: str, continent: str):
+        self.c_name = country_name
+        self.continent = continent
+
+    def country_info(self):
+        return f"Country name {self.c_name} , Continent {self.continent} "
 
 
-# a = [[10, 20], [40], [30, 56, 25], [10, 20], [33], [40]]
-# new = []
-# for x in a:
-#     if x not in new:
-#         new.append(x)
-
-# print(new)
+my_country = Country("Erevan", "Armenia")
+print(my_country.country_info())
 
 
-#----------------------------------Homework#2-----------------------------
+class Brand:
+    def __init__(self, brand_name: str, business_start_date: int):
+        self.brand_name = brand_name
+        self.business_start_date = business_start_date
 
-# list_1=[0, 10, [20, 30], 40, 50, [60, 70, 80], [90, 100, 110, 120]]
-# list_2=[]
-# for i in list_1:
-#     if type(i)==int:
-#         list_2.append(i)
-#     elif type(i)!=int:
-#         for j in i:
-#             list_2.append(j)
-# print(list_2)
+    def presentation(self):
+        return f"Brand name {self.brand_name}, Business start date {self.business_start_date} "
 
-dict_2 = {}
-for i in range(20):
-    number = random.randint(1,20)
 
-    if number >=10:
-        if "over_10" in dict_2.keys():
-            dict_2["over_10"]+=1
-        else:
-            dict_2["over_10"] =1
-    else:
-        if "under_10" in dict_2.keys():
-            dict_2["under_10"] +=1
-        else:
-            dict_2["under_10"] =1
-print(dict_2)
+my_presentation = Brand("Lexus", 2000)
+print(my_presentation.presentation())
+
+
+class Season:
+    def __init__(self, season_name: str, temperature: int):
+        self.season_name = season_name
+        self.temperature = temperature
+
+    def season_info(self):
+        return f"Season {self.season_name}, Temperature {self.temperature}"
+
+
+my_season = Season("Winter", 35)
+print(my_season.season_info())
+
+
+class Product(Season, Brand, Country):
+    def __init__(self, product_name: str, product_type: str, product_price: int, product_quantity: int):
+        Country.__init__(self, country_name, continent)
+        Brand.__init__(self,brand_name,business_start_date)
+        Season.__init__(self,season_name,temperature)
+        self.p_name = product_name
+        self.p_type = product_type
+        self.p_price = product_price
+        self.p_quantity = product_quantity
+
+
+    def prod_t(self):
+        return f"Name {self.p_name}, Type {self.p_type}, price {self.p_price}, Quantity {self.p_quantity}"
+
+
